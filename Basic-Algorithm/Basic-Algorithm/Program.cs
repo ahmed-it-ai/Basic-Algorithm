@@ -10,7 +10,8 @@ namespace Basic_Algorithm
     {
         static void Main(string[] args)
         {
-            while (true) {
+            int n = 0;
+            while (n==0) {
                 inter();
                 int selcetedNumber = int.Parse(Console.ReadLine());
                 Console.Clear();
@@ -22,7 +23,10 @@ namespace Basic_Algorithm
             switch (selcetedNumber)
             {
                 case 1 :
-                   PrintTrianglesPatternsV1();
+                    TrianglesPatternsPrintV1();
+                    break;
+                case 2:
+                    HollowTrianglePrint();
                     break;
                 default:
                     Console.WriteLine("Invalid number :"+ selcetedNumber);
@@ -37,7 +41,7 @@ namespace Basic_Algorithm
             Console.WriteLine("1- Print Triangles Patterns ( Level 1 ) .");
             Console.Write("inter your number :");
         }
-        public static void PrintTrianglesPatternsV1()
+        public static void TrianglesPatternsPrintV1()
         {
             Console.Write("inter the size fo Triangle :");
              int size = int.Parse(Console.ReadLine());
@@ -49,6 +53,34 @@ namespace Basic_Algorithm
                     Console.Write("* ");
                 }
             }
+        }
+        public static void HollowTrianglePrint()
+        {
+            Console.Write("inter the size fo Triangle :");
+            int size = int.Parse(Console.ReadLine());
+            for (int x =0; x<size;x++)
+            {
+                Console.WriteLine();
+                for (int i=1;i<x+1;i++)
+                {
+                    if (i==1 || i==x)
+                    {
+                        Console.Write("* ");
+                    }
+                    else if(x==size-1)
+                    {
+                        Console.Write("*");
+                    }
+                    else
+                    {
+                        Console.Write(" ");
+                    }
+                    
+
+                }
+            }
+
+
         }
 
     }

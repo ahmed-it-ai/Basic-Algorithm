@@ -15,7 +15,6 @@ namespace Basic_Algorithm
                 int selcetedNumber = int.Parse(Console.ReadLine());
                 Console.Clear();
                 selecting(selcetedNumber);
-                
             }
         }
         public static void selecting (int selcetedNumber)
@@ -33,14 +32,16 @@ namespace Basic_Algorithm
         }
         public static void inter()
         {
+            Console.WriteLine();
             Console.WriteLine($"                select number of the Algorithm   ");
             Console.WriteLine("1- Print Triangles Patterns ( Level 1 ) .");
             Console.Write("inter your number :");
         }
         public static void PrintTrianglesPatternsV1()
         {
-
-            for (int x = 0; x < 10 ; x++)
+            Console.Write("inter the size fo Triangle :");
+             int size = int.Parse(Console.ReadLine());
+            for (int x = 0; x < size ; x++)
             {
                 Console.WriteLine();
                 for (int i = 0; i < x; i++)

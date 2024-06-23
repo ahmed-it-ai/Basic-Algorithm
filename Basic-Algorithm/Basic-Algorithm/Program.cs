@@ -13,7 +13,9 @@ namespace Basic_Algorithm
             while (true) {
                 inter();
                 int selcetedNumber = int.Parse(Console.ReadLine());
+                Console.Clear();
                 selecting(selcetedNumber);
+                
             }
         }
         public static void selecting (int selcetedNumber)
@@ -50,3 +52,4 @@ namespace Basic_Algorithm
 
     }
 }
+

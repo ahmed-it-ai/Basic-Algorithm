@@ -32,7 +32,10 @@ namespace Basic_Algorithm
 
                 case 3:
                     PyramidShapePrint();
-                    break;                    
+                    break;
+                case 4:
+                    ChristmasTreePrint();
+                    break;
                 default:
                     Console.WriteLine("Invalid number :"+ selcetedNumber);
                     break;
@@ -45,17 +48,23 @@ namespace Basic_Algorithm
             Console.WriteLine($"                select number of the Algorithm   ");
             Console.WriteLine("1- Print  Triangle Pattern ( Level 1 ) .");
             Console.WriteLine("2- Hollow Triangle Pattern ( Level 2 ) .");
-            Console.WriteLine("3- Pyramid Shape   Pattern ( Level 3 ) .");            
+            Console.WriteLine("3- Pyramid Shape   Pattern ( Level 3 ) .");
+            Console.WriteLine("4- Christmas Tree  Pattern ( Level 4 ) .");
+            //ChristmasTreePrint()
             Console.Write("inter your number :");
+        }
+        public static int Size()
+        {
+            Console.Write("inter the size fo Triangle :");
+            return int.Parse(Console.ReadLine());
         }
         /// <summary>
         /// selcet number 1 for TrianglesPatternsPrintV1
         /// </summary>
         public static void TrianglesPatternsPrintV1()
         {
-            Console.Write("inter the size fo Triangle :");
-             int size = int.Parse(Console.ReadLine());
-            for (int x = 0; x < size ; x++)
+            int size = Size();
+            for (int x = 0; x < size; x++)
             {
                 Console.WriteLine();
                 for (int i = 0; i < x; i++)
@@ -66,9 +75,8 @@ namespace Basic_Algorithm
         }
         public static void HollowTrianglePrint()
         {
-            Console.Write("inter the size fo Triangle :");
-            int size = int.Parse(Console.ReadLine());
-            for (int x =0; x<size;x++)
+            int size = Size();
+            for (int x =0; x< size; x++)
             {
                 Console.WriteLine();
                 for (int i=1;i<x+1;i++)
@@ -94,12 +102,11 @@ namespace Basic_Algorithm
         }
         public static void PyramidShapePrint()
         {
-            Console.Write("inter the size fo Triangle :");
-            int size = int.Parse(Console.ReadLine());
-            for (int x = 1; x<size+1;x++)
+            int size = Size();
+            for (int x = 1; x< size + 1;x++)
             {
                 Console.WriteLine(" ");
-                int space =size - x;
+                int space = size - x;
                 int star = x * 2 - 1;
                 while (space > 0)
                 {
@@ -113,6 +120,29 @@ namespace Basic_Algorithm
                 }
             }
 
+        }
+        public static void ChristmasTreePrint()
+        {
+            int size = Size();
+           
+            for (int i = 0; i < size; i++)  // To print the head of tree
+            {
+                for (int x = 0; x < size-i; x++) { Console.Write(" "); }
+                for (int x = 0; x < i*2-1; x++) { Console.Write("*");}
+                Console.WriteLine();
+            }
+
+            for (int i = size/2+1; i < size; i++)// To print the second part of the tree 
+            {                
+                for (int x = 0; x < size - i; x++) { Console.Write(" "); }
+                for (int x = 0; x < i * 2 - 1; x++) { Console.Write("*"); }
+                Console.WriteLine();
+            }
+            //To print the Root part of the tree
+            for (int x = 0; x < size - 2; x++) { Console.Write(" "); }
+            Console.WriteLine("|-|");
+            for (int x = 0; x < size - 2; x++) { Console.Write(" "); }
+            Console.WriteLine("|-|");
         }
 
     }

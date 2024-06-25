@@ -36,6 +36,10 @@ namespace Basic_Algorithm
                 case 4:
                     ChristmasTreePrint();
                     break;
+
+                case 5:
+                    BubbleSorting();
+                    break;                
                 default:
                     Console.WriteLine("Invalid number :"+ selcetedNumber);
                     break;
@@ -50,7 +54,7 @@ namespace Basic_Algorithm
             Console.WriteLine("2- Hollow Triangle Pattern ( Level 2 ) .");
             Console.WriteLine("3- Pyramid Shape   Pattern ( Level 3 ) .");
             Console.WriteLine("4- Christmas Tree  Pattern ( Level 4 ) .");
-            //ChristmasTreePrint()
+            Console.WriteLine("5- Bubble Sorting  Number  ( Level 5 ) .");            
             Console.Write("inter your number :");
         }
         public static int Size()
@@ -143,6 +147,41 @@ namespace Basic_Algorithm
             Console.WriteLine("|-|");
             for (int x = 0; x < size - 2; x++) { Console.Write(" "); }
             Console.WriteLine("|-|");
+        }
+        public static void BubbleSorting()
+        {
+            int[] list = { 99, 57, 44, 179, 58, 47, 139, 59, 48, 159, 51, 43, 31 };
+            int larger, smaller;
+            //to print list
+            for (int x = 0; x < list.Length; x++)
+            {
+                Console.Write(" " + list[x]);
+            }
+            Console.WriteLine();
+
+            //to sorting
+            for (int i = 0;  i < list.Length; i++)
+            {
+                for (int x = 0; x < list.Length-1; x++)
+                {
+                    smaller = list[x];
+                    larger = list[x+1];
+                    //to Shift
+                    if (smaller>larger)
+                    {
+                        list[x] = larger;
+                        list[x + 1] = smaller;
+                    }
+
+                }
+            }
+
+            //to print list
+            for (int x = 0; x < list.Length; x++)
+            {
+                Console.Write(" "+ list[x]);
+            }
+
         }
 
     }

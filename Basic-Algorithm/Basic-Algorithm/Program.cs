@@ -4,26 +4,27 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
+
 namespace Basic_Algorithm
 {
     class Program
     {
         static void Main(string[] args)
-        {
+        {           
             int n = 0;
-            while (n==0) {
+            while (n == 0) {              
                 inter();
                 int selcetedNumber = int.Parse(Console.ReadLine());
                 //if (selcetedNumber == null) { break; }
-                Console.Clear();
-                selecting(selcetedNumber);
+                Console.Clear();                
+                selecting(selcetedNumber);               
             }
         }
-        public static void selecting (int selcetedNumber)
-        {            
+        public static void selecting(int selcetedNumber)
+        {
             switch (selcetedNumber)
             {
-                case 1 :
+                case 1:
                     TrianglesPatternsPrintV1();
                     break;
                 case 2:
@@ -39,9 +40,9 @@ namespace Basic_Algorithm
 
                 case 5:
                     BubbleSorting();
-                    break;                
+                    break;
                 default:
-                    Console.WriteLine("Invalid number :"+ selcetedNumber);
+                    Console.WriteLine("Invalid number :" + selcetedNumber);
                     break;
             }
 
@@ -54,14 +55,14 @@ namespace Basic_Algorithm
             Console.WriteLine("2- Hollow Triangle Pattern ( Level 2 ) .");
             Console.WriteLine("3- Pyramid Shape   Pattern ( Level 3 ) .");
             Console.WriteLine("4- Christmas Tree  Pattern ( Level 4 ) .");
-            Console.WriteLine("5- Bubble Sorting  Number  ( Level 5 ) .");            
+            Console.WriteLine("5- Bubble Sorting  Number  ( Level 5 ) .");
             Console.Write("inter your number :");
         }
         public static int Size()
         {
             Console.Write("inter the size fo Triangle :");
             return int.Parse(Console.ReadLine());
-        }
+        }      
         /// <summary>
         /// selcet number 1 for TrianglesPatternsPrintV1
         /// </summary>
@@ -150,20 +151,36 @@ namespace Basic_Algorithm
         }
         public static void BubbleSorting()
         {
-            int[] list = { 99, 57, 44, 179, 58, 47, 139, 59, 48, 159, 51, 43, 31 };
-            int larger, smaller;
+
+            //to creat Array from Random (0 to 9) and (n=size)
+            int size = Size();
+            int[] list = new int[size];
+            var rand = new Random();
+            for (int i = 0; i < size; i++)
+            {
+                list[i] = rand.Next(0, 10);
+            }
+            //int[] list = {9,1,2,3,4,5,6,7,8,0};
             //to print list
+            int larger, smaller;            
+            Console.Write("Befor --> ((");
             for (int x = 0; x < list.Length; x++)
             {
                 Console.Write(" " + list[x]);
             }
+            Console.Write("))");
             Console.WriteLine();
 
-            //to sorting
+            //start sorting
+            int CountLoop = 0;
+            int CountShifting = 0;
+            bool end = true;
             for (int i = 0;  i < list.Length; i++)
             {
+                end = false;
                 for (int x = 0; x < list.Length-1; x++)
                 {
+                    
                     smaller = list[x];
                     larger = list[x+1];
                     //to Shift
@@ -171,17 +188,22 @@ namespace Basic_Algorithm
                     {
                         list[x] = larger;
                         list[x + 1] = smaller;
+                        CountShifting += 1;
+                        end = true;
                     }
-
+                    CountLoop += 1;
                 }
+                if (end==false) { break;}
             }
 
             //to print list
+            Console.Write("After --> ((");
             for (int x = 0; x < list.Length; x++)
             {
                 Console.Write(" "+ list[x]);
             }
-
+            Console.Write("))");
+            Console.WriteLine($"\n Loop:{CountLoop} \n Shifting{CountShifting}");
         }
 
     }

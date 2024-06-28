@@ -13,9 +13,8 @@ namespace Basic_Algorithm
         {           
             int n = 0;
             while (n == 0) {              
-                inter();
-                int selcetedNumber = int.Parse(Console.ReadLine());
-                //if (selcetedNumber == null) { break; }
+                inter();                
+                int selcetedNumber = int.Parse(Console.ReadLine());                
                 Console.Clear();                
                 selecting(selcetedNumber);               
             }
@@ -41,6 +40,10 @@ namespace Basic_Algorithm
                 case 5:
                     BubbleSorting();
                     break;
+
+                case 6:
+                   Console.WriteLine( $"Fibonacci Number is:    {Fibonacci(Size())}");
+                    break;
                 default:
                     Console.WriteLine("Invalid number :" + selcetedNumber);
                     break;
@@ -51,16 +54,20 @@ namespace Basic_Algorithm
         {
             Console.WriteLine();
             Console.WriteLine($"                select number of the Algorithm   ");
-            Console.WriteLine("1- Print  Triangle Pattern ( Level 1 ) .");
-            Console.WriteLine("2- Hollow Triangle Pattern ( Level 2 ) .");
-            Console.WriteLine("3- Pyramid Shape   Pattern ( Level 3 ) .");
-            Console.WriteLine("4- Christmas Tree  Pattern ( Level 4 ) .");
-            Console.WriteLine("5- Bubble Sorting  Number  ( Level 5 ) .");
+            Console.WriteLine("1- Print  Triangle Pattern ( Task 1 ) .");
+            Console.WriteLine("2- Hollow Triangle Pattern ( Task 2 ) .");
+            Console.WriteLine("3- Pyramid Shape   Pattern ( Task 3 ) .");
+            Console.WriteLine("4- Christmas Tree  Pattern ( Task 4 ) .");
+            Console.WriteLine("5- Bubble Sorting  Number  ( Task 5 ) .");
+            Console.WriteLine("6- Print Fibonacci Number  ( Task 6 ) .");
+            //Fibonacci number
             Console.Write("inter your number :");
         }
         public static int Size()
+
+
         {
-            Console.Write("inter the size fo Triangle :");
+            Console.Write("inter the size :");
             return int.Parse(Console.ReadLine());
         }      
         /// <summary>
@@ -204,6 +211,30 @@ namespace Basic_Algorithm
             }
             Console.Write("))");
             Console.WriteLine($"\n Loop:{CountLoop} \n Shifting{CountShifting}");
+        }        
+        public static void prentTree(int n,int f)
+        {
+            for (int x = 0; x < n; x++)
+            {
+                Console.Write("____");
+            }
+            Console.Write($"n({f}) = F({n})");
+            Console.WriteLine();
+        }
+        public static int Fibonacci (int n)
+        {
+            if (n<=1)
+            {
+                return n;
+            }
+            else
+            {
+                int r = Fibonacci(n - 1) + Fibonacci(n - 2);
+                
+                prentTree(n,r);
+                return r;
+            }
+            
         }
 
     }

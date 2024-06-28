@@ -63,6 +63,15 @@ namespace Basic_Algorithm
             //Fibonacci number
             Console.Write("inter your number :");
         }
+        public static void prentTree(int n, int f)
+        {
+            for (int x = 0; x < n; x++)
+            {
+                Console.Write("____");
+            }
+            Console.Write($"n({f}) = F({n})");
+            Console.WriteLine();
+        }
         public static int Size()
 
 
@@ -70,6 +79,13 @@ namespace Basic_Algorithm
             Console.Write("inter the size :");
             return int.Parse(Console.ReadLine());
         }      
+        public static void ArrayPrinter(int[] list)
+        {
+            for (int i = 0; i < list.Length; i++)
+            {
+                Console.Write($" {list[i]}");
+            }
+        } 
         /// <summary>
         /// selcet number 1 for TrianglesPatternsPrintV1
         /// </summary>
@@ -171,10 +187,7 @@ namespace Basic_Algorithm
             //to print list
             int larger, smaller;            
             Console.Write("Befor --> ((");
-            for (int x = 0; x < list.Length; x++)
-            {
-                Console.Write(" " + list[x]);
-            }
+            ArrayPrinter(list);
             Console.Write("))");
             Console.WriteLine();
 
@@ -205,22 +218,10 @@ namespace Basic_Algorithm
 
             //to print list
             Console.Write("After --> ((");
-            for (int x = 0; x < list.Length; x++)
-            {
-                Console.Write(" "+ list[x]);
-            }
+            ArrayPrinter(list);
             Console.Write("))");
             Console.WriteLine($"\n Loop:{CountLoop} \n Shifting{CountShifting}");
         }        
-        public static void prentTree(int n,int f)
-        {
-            for (int x = 0; x < n; x++)
-            {
-                Console.Write("____");
-            }
-            Console.Write($"n({f}) = F({n})");
-            Console.WriteLine();
-        }
         public static int Fibonacci (int n)
         {
             if (n<=1)

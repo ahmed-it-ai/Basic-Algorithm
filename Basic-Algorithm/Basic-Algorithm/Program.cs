@@ -46,6 +46,9 @@ namespace Basic_Algorithm
                     break;
                 case 7:
                     SelectionSort();
+                    break;
+                case 8:
+                    gitSumNumber();
                     break;                
                 default:
                     Console.WriteLine("Invalid number :" + selcetedNumber);
@@ -63,8 +66,9 @@ namespace Basic_Algorithm
             Console.WriteLine("4- Christmas Tree  Pattern ( Task 4 ) .");
             Console.WriteLine("5- Bubble Sorting  Number  ( Task 5 ) .");
             Console.WriteLine("6- Print Fibonacci Number  ( Task 6 ) .");
-            Console.WriteLine("6- Selection Sort  Pattern ( Task 7 ) .");
-            //SelectionSort()
+            Console.WriteLine("7- Selection Sort  Pattern ( Task 7 ) .");
+            Console.WriteLine("7- git  Sum   of   Number  ( Task 8 ) .");
+            //gitSumNumber()
             Console.Write("inter number Task :");
         }
         public static void prentTree(int n, int f)
@@ -90,6 +94,17 @@ namespace Basic_Algorithm
                 Console.Write($" {list[i]}");
             }
         } 
+        public static int[] RandomNumber(int size)
+        {
+            int[] list = new int[size];
+            var rand = new Random();
+            for (int i = 0; i < size; i++)
+            {
+                list[i] = rand.Next(0, 20);
+            }
+            return list;
+        }
+
         /// <summary>
         /// selcet number 1 for TrianglesPatternsPrintV1
         /// </summary>
@@ -179,15 +194,11 @@ namespace Basic_Algorithm
         public static void BubbleSorting()
         {
 
-            //to creat Array from Random (0 to 9) and (n=size)
+            //to creat Array from Random Number and (n=size)
             int size = Size();
             int[] list = new int[size];
-            var rand = new Random();
-            for (int i = 0; i < size; i++)
-            {
-                list[i] = rand.Next(0, 10);
-            }
-            //int[] list = {9,1,2,3,4,5,6,7,8,0};
+            list = RandomNumber(size);
+            
             //to print list
             int larger, smaller;            
             Console.Write("Befor --> ((");
@@ -278,6 +289,73 @@ namespace Basic_Algorithm
             }
             ArrayPrinter(list);
             Console.WriteLine($"\n Loop:{countLoop} \n Shifting{countShift}");
+        }
+        public static int[] SelectionSort2(int[] list)
+        {
+            int countLoop = 0;
+            int countShift = 0;
+            bool end = false;            
+
+            int smallerN = list[0];
+
+            for (int i = 0; i < list.Length; i++)
+            {
+                for (int x = i + 1; x < list.Length; x++)
+                {
+                    if (list[i] > list[x])
+                    {
+                        smallerN = list[x];
+                        list[x] = list[i];
+                        list[i] = smallerN;
+                        end = true;
+                        countShift += 1;
+                    }
+                    countLoop += 1;
+                }
+                if (end == false) { break; }
+            }
+            return list;
+        }
+        public static void gitSumNumber()
+        {
+            int size = Size();
+            Console.Write("your number is:");
+            int n = int.Parse(Console.ReadLine());
+            int[] list1 = new int[size];
+            list1 = RandomNumber(size);
+            int[] list = SelectionSort2(list1);                        
+            Console.Write("((");
+            ArrayPrinter(list);
+            Console.Write("))");
+            Console.WriteLine();
+            int i = 0;
+            int j = list.Length - 1;
+            bool end = true;
+            while (end)
+            {
+                if (list[i] + list[j] == n)
+                {
+                    break;
+                } else if (list[i] + list[j] > n)
+                {
+                    j--;
+                } else if (list[i] + list[j] < n)
+                {
+                    i++;
+                }
+
+                if (j <= 0 || i >= list.Length - 1){ end = false; }
+            }
+            if (end)
+            {
+                Console.WriteLine($"    (i={i}:j={j})\n    {n}={list[i]}+{list[j]}");
+            }
+            else
+            {
+                Console.WriteLine("Can Not fond !");
+            }
+
+            
         }
 
     }

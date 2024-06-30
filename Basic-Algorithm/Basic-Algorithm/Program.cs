@@ -44,6 +44,9 @@ namespace Basic_Algorithm
                 case 6:
                    Console.WriteLine( $"Fibonacci Number is:    {Fibonacci(Size())}");
                     break;
+                case 7:
+                    SelectionSort();
+                    break;                
                 default:
                     Console.WriteLine("Invalid number :" + selcetedNumber);
                     break;
@@ -60,8 +63,9 @@ namespace Basic_Algorithm
             Console.WriteLine("4- Christmas Tree  Pattern ( Task 4 ) .");
             Console.WriteLine("5- Bubble Sorting  Number  ( Task 5 ) .");
             Console.WriteLine("6- Print Fibonacci Number  ( Task 6 ) .");
-            //Fibonacci number
-            Console.Write("inter your number :");
+            Console.WriteLine("6- Selection Sort  Pattern ( Task 7 ) .");
+            //SelectionSort()
+            Console.Write("inter number Task :");
         }
         public static void prentTree(int n, int f)
         {
@@ -237,7 +241,44 @@ namespace Basic_Algorithm
             }
             
         }
+        public static void SelectionSort()
+        {
+            int size = Size();
+            int[] list = new int[size];
+            var rand = new Random();
+            for (int i = 0; i < size; i++)
+            {
+                list[i] = rand.Next(0, 10);
+            }
+
+            ArrayPrinter(list);
+
+            int countLoop = 0;
+            int countShift = 0;
+            bool end = false;
+            Console.WriteLine($"\n ");
+            
+            int smallerN = list[0];
+           
+            for (int i = 0; i < list.Length; i++)
+            {
+                for (int x = i+1; x < list.Length ; x++)
+                {
+                    if (list[i] > list[x])
+                    {                        
+                        smallerN = list[x];
+                        list[x] = list[i];
+                        list[i] = smallerN;
+                        end = true;
+                        countShift += 1;
+                    }
+                    countLoop += 1;
+                }
+                if (end = false) { break;}
+            }
+            ArrayPrinter(list);
+            Console.WriteLine($"\n Loop:{countLoop} \n Shifting{countShift}");
+        }
 
     }
 }
-
